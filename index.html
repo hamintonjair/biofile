@@ -104,18 +104,23 @@
     </div>
     <script>
         (function () {
-            // Si estamos en raíz, redirigir a la ruta con el código
+            // Preferir ?Trama=... como en la URL original; fallback al primer segmento del path; luego a default
             var defaultCode = 'X761F1J9708';
+            var params = new URLSearchParams(window.location.search);
+            var fromQuery = params.get('Trama');
             var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
-            if (!path) {
-                window.location.replace('/' + defaultCode);
-                return;
+            var fromPath = path ? path.split('/')[0] : '';
+            var code = fromQuery || fromPath || defaultCode;
+
+            // Si no venía código en query ni en path, normalizar URL a ?Trama=CODE sin recargar histórico
+            if (!fromQuery && !fromPath) {
+                var newUrl = window.location.origin + window.location.pathname + '?Trama=' + encodeURIComponent(code) + window.location.hash;
+                window.history.replaceState(null, '', newUrl);
             }
-            // Extraer código de la primera parte del path
-            var codeFromPath = path.split('/')[0];
+
             var codeEl = document.getElementById('codigoSeguridad');
             if (codeEl) {
-                codeEl.textContent = codeFromPath;
+                codeEl.textContent = code;
             }
             var btn = document.getElementById('btnListo');
             if (btn) {
