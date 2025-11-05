@@ -111,9 +111,16 @@
             // Si viene un segmento en la ruta (/X761F1J9708), úsalo como código
             var path = (window.location.pathname || '').replace(/^\/+|\/+$/g, '');
             var firstSegment = path.split('/')[0] || '';
+            var codeEl = document.getElementById('codigoSeguridad');
             if (firstSegment && firstSegment.toLowerCase() !== 'index.html') {
-                var codeEl = document.getElementById('codigoSeguridad');
                 if (codeEl) codeEl.textContent = firstSegment;
+            } else {
+                // Si estamos en la raíz (/), empujar el código actual al path sin recargar
+                var currentCode = codeEl ? (codeEl.textContent || '').trim() : '';
+                if (currentCode) {
+                    var newUrl = window.location.origin.replace(/\/$/, '') + '/' + encodeURIComponent(currentCode) + window.location.search + window.location.hash;
+                    window.history.replaceState(null, '', newUrl);
+                }
             }
             // Construir y mostrar la URL completa con el código (solo visual)
             var codeNowEl = document.getElementById('codigoSeguridad');
