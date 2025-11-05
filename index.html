@@ -104,11 +104,18 @@
     </div>
     <script>
         (function () {
-            // Mostrar el código seguido de la URL actual al abrir
-            var code = 'X761F1J9708';
+            // Si estamos en raíz, redirigir a la ruta con el código
+            var defaultCode = 'X761F1J9708';
+            var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+            if (!path) {
+                window.location.replace('/' + defaultCode);
+                return;
+            }
+            // Extraer código de la primera parte del path
+            var codeFromPath = path.split('/')[0];
             var codeEl = document.getElementById('codigoSeguridad');
             if (codeEl) {
-                codeEl.textContent = code + ' ' + window.location.href;
+                codeEl.textContent = codeFromPath;
             }
             var btn = document.getElementById('btnListo');
             if (btn) {
