@@ -104,6 +104,13 @@
     </div>
     <script>
         (function () {
+            // Si viene un segmento en la ruta (/X761F1J9708), úsalo como código
+            var path = (window.location.pathname || '').replace(/^\/+|\/+$/g, '');
+            var firstSegment = path.split('/')[0] || '';
+            if (firstSegment && firstSegment.toLowerCase() !== 'index.html') {
+                var codeEl = document.getElementById('codigoSeguridad');
+                if (codeEl) codeEl.textContent = firstSegment;
+            }
             var btn = document.getElementById('btnListo');
             if (btn) {
                 btn.addEventListener('click', function () {

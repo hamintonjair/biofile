@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "src": "/qr\.html", "dest": "/qr.html" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
+
