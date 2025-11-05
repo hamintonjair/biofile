@@ -96,12 +96,23 @@
             <p id="conceptoMedico">SIN DEFECTO FÍSICO NI ENFERMEDAD QUE INTERFIERA SU CAPACIDAD LABORAL PARA LA LABOR ASIGNADA</p>
         </div>
 
-        <button class="btn">✔ ¡Listo!</button>
+        <button class="btn" id="btnListo">✔ ¡Listo!</button>
 
         <div class="footer">
             <p>&copy; 2025 Biofile - <a href="#">Política de privacidad</a></p>
         </div>
     </div>
+    <script>
+        (function () {
+            var btn = document.getElementById('btnListo');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    // Reemplaza la URL actual para evitar volver atrás
+                    window.location.replace('https://www.google.com');
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
 
