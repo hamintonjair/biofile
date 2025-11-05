@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/x-icon" href="/biofile/icon.ico">
+     <link rel="shortcut icon" href="/biofile/icon.ico">
+    <title>Validar Documentos - Biofile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0069b1; /* Fondo azul similar al original */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* permite scroll */
+            overflow-y: auto;
+        }
+
+        .container {
+            background-color: #fff;
+            color: #333;
+            width: 100%;
+            max-width: 460px; /* más estrecho como el original */
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            margin: 40px auto; /* centrado con espacio superior/inferior */
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 260px; /* tamaño del logo como en el diseño original */
+        }
+
+        .header h1 {
+            font-size: 22px;
+            color: #0069b1;
+            margin: 8px 0 2px 0;
+            font-weight: bold;
+        }
+
+        .header .sub {
+            color: #0a67a3;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #263238;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 16px 0 8px 0;
+        }
+
+        .data {
+            display: block; /* valor debajo del label */
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e9eef4; /* líneas divisorias como en el diseño */
+        }
+
+        .data label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            color: #0a67a3; /* títulos azules */
+        }
+
+        .data p {
+            font-size: 16px;
+            margin: 4px 0 0 0; /* pequeño espacio debajo del label */
+            word-wrap: break-word;
+        }
+
+        .btn {
+            background-color: #21a146;
+            color: white;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            background-color: #28bb52;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #666;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-title">Validador de documentos</div>
+        <div class="header">
+            <img src="C:\xampp\htdocs\biofile\logo.png" alt="Biofile Logo">
+        </div>
+
+        <div class="data">
+            <label for="codigoSeguridad">Código de seguridad:</label>
+            <p id="codigoSeguridad">X781D1J9707</p>
+        </div>
+        <div class="data">
+            <label for="centroMedico">Centro Médico:</label>
+            <p id="centroMedico">BIOLABORAL IPS</p>
+        </div>
+        <div class="data">
+            <label for="numero">N°:</label>
+            <p id="numero">9709</p>
+        </div>
+        <div class="data">
+            <label for="fechaHora">Fecha y Hora:</label>
+            <p id="fechaHora">05 Nov 2025 a las 09:15:25</p>
+        </div>
+        <div class="data">
+            <label for="lugarExamen">Lugar de Realización del Examen:</label>
+            <p id="lugarExamen">QUIBDO (CHOCÓ, COLOMBIA)</p>
+        </div>
+        <div class="data">
+            <label for="identificacion">N° de Identificación:</label>
+            <p id="identificacion">CC: 80727379</p>
+        </div>
+        <div class="data">
+            <label for="nombreCompleto">Nombre Completo:</label>
+            <p id="nombreCompleto">HAMINTON MENA MENA</p>
+        </div>
+        <div class="data">
+            <label for="empresa">Nombre de la Empresa:</label>
+            <p id="empresa">PARTICULARES CONTADO</p>
+        </div>
+        <div class="data">
+            <label for="empresaMision">Empresa en Misión:</label>
+            <p id="empresaMision">PARTICULARES</p>
+        </div>
+        <div class="data">
+            <label for="tipoExamen">Tipo de Examen Médico Ocupacional:</label>
+            <p id="tipoExamen">EVALUACIÓN MÉDICA OCUPACIONAL DE INGRESO</p>
+        </div>
+        <div class="data">
+            <label for="concepto">Tipo de Concepto:</label>
+            <p id="concepto">INGRESO, PRE-OCUPACIONAL O PRE-INGRESO</p>
+        </div>
+        <div class="data">
+            <label for="conceptoMedico">Concepto Médico Ocupacional:</label>
+            <p id="conceptoMedico">SIN DEFECTO FÍSICO NI ENFERMEDAD QUE INTERFIERA SU CAPACIDAD LABORAL PARA LA LABOR ASIGNADA</p>
+        </div>
+
+        <button class="btn">✔ ¡Listo!</button>
+
+        <div class="footer">
+            <p>&copy; 2025 Biofile - <a href="#">Política de privacidad</a></p>
+        </div>
+    </div>
+</body>
+</html>
