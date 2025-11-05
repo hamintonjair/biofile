@@ -22,12 +22,26 @@
     <div class="wrap">
         <div class="card">
             <h1>QR de Biofile</h1>
-            <p>Escanéalo para abrir el sitio</p>
-            <img class="qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fbiofile.onrender.com%2F&size=280&margin=1" alt="QR Biofile">
-            <a class="btn" href="https://biofile.onrender.com/" target="_blank" rel="noopener">Abrir biofile.onrender.com</a>
-            <div class="url">https://biofile.onrender.com/</div>
+            <p>Escanéalo para abrir el sitio con el código</p>
+            <img id="qrImg" class="qr" src="" alt="QR Biofile">
+            <a id="openBtn" class="btn" href="#" target="_blank" rel="noopener">Abrir biofile.onrender.com</a>
+            <div id="targetUrl" class="url"></div>
         </div>
     </div>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            var code = (params.get('code') || 'X761F1J9708').trim();
+            var base = (window.location.origin || 'https://biofile.onrender.com').replace(/\/$/, '');
+            var target = base + '/' + encodeURIComponent(code);
+            var qr = document.getElementById('qrImg');
+            var openBtn = document.getElementById('openBtn');
+            var urlEl = document.getElementById('targetUrl');
+            if (qr) qr.src = 'https://quickchart.io/qr?text=' + encodeURIComponent(target) + '&size=280&margin=1';
+            if (openBtn) openBtn.href = target;
+            if (urlEl) urlEl.textContent = target;
+        })();
+    </script>
 </body>
 </html>
 
