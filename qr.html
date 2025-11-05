@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <link rel="icon" type="image/x-icon" href="/icon.ico">
     <title>QR - Biofile</title>
     <style>
         body { margin: 0; font-family: Arial, sans-serif; background: #0b6fb3; color: #fff; }
@@ -22,45 +22,12 @@
     <div class="wrap">
         <div class="card">
             <h1>QR de Biofile</h1>
-            <p>Escanéalo para abrir el sitio con el código</p>
-            <img id="qrImg" class="qr" src="" alt="QR Biofile">
-            <a id="openBtn" class="btn" href="#" target="_blank" rel="noopener">Abrir biofile.onrender.com</a>
-            <div id="targetUrl" class="url"></div>
+            <p>Escanéalo para abrir el sitio</p>
+            <img class="qr" src="https://quickchart.io/qr?text=https%3A%2F%2Fbiofile.onrender.com/%2F&size=280&margin=1" alt="QR Biofile">
+            <a class="btn" href="https://biofile.onrender.com/" target="_blank" rel="noopener">Abrir biofile.onrender.com</a>
+            <div class="url">https://biofile.onrender.com/</div>
         </div>
     </div>
-    <script>
-        (function () {
-            var params = new URLSearchParams(window.location.search);
-            var code = (params.get('code') || 'X761F1J9708').trim();
-
-            // Detectar entorno local (file:// o localhost) y ajustar base
-            var origin = (window.location.origin || '').replace(/\/$/, '');
-            var isFile = window.location.protocol === 'file:';
-            var isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            var pathParts = (window.location.pathname || '/').split('/').filter(Boolean);
-            var firstDir = pathParts.length > 0 ? '/' + pathParts[0] : '';
-
-            var base;
-            if (isFile) {
-                // Abierto directamente: asumir XAMPP en http://localhost/biofile
-                base = 'http://localhost/biofile';
-            } else if (isLocalhost) {
-                // Servido por XAMPP: incluir primer directorio como base (p. ej. /biofile)
-                base = origin + firstDir;
-            } else {
-                // Producción (Render)
-                base = origin || 'https://biofile.onrender.com';
-            }
-
-            var target = base.replace(/\/$/, '') + '/' + encodeURIComponent(code);
-            var qr = document.getElementById('qrImg');
-            var openBtn = document.getElementById('openBtn');
-            var urlEl = document.getElementById('targetUrl');
-            if (qr) qr.src = 'https://quickchart.io/qr?text=' + encodeURIComponent(target) + '&size=280&margin=1';
-            if (openBtn) openBtn.href = target;
-            if (urlEl) urlEl.textContent = target;
-        })();
-    </script>
 </body>
 </html>
 
